@@ -1,0 +1,172 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="A snapshot of who holds the admin keys for 20 major Ethereum DeFi protocols: multisig, timelock, DAO governance or single wallet.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Who holds the admin keys? 20 Ethereum DeFi protocols">
+<meta property="og:description" content="Immediate admin controller of 20 major Ethereum DeFi protocols, snapshot 10 Oct 2026 (block 26,164,177). Not an audit or a risk rating.">
+<meta property="og:url" content="https://muhammad-abbas-khalil.github.io/admin-key-snapshot/">
+<meta property="og:image" content="https://muhammad-abbas-khalil.github.io/admin-key-snapshot/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<title>Who holds the admin keys? 20 Ethereum DeFi protocols</title>
+<style>
+:root{--bg:#f6f7f9;--card:#fff;--text:#14181f;--muted:#586170;--line:#e1e5ec;--accent:#2457d6;
+--multisig:#2457d6;--timelock:#a85f00;--dao:#0b7a4b;--wallet:#c0392b;--immutable:#586170;--unresolved:#7a3fb5;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0f1319;--card:#171c25;--text:#e8ecf2;--muted:#9aa4b2;--line:#2a3140;--accent:#7aa2ff;
+--multisig:#7aa2ff;--timelock:#f0b04a;--dao:#4fd1a0;--wallet:#ff8a7a;--immutable:#9aa4b2;--unresolved:#c9a0ff}}
+:root[data-theme="dark"]{--bg:#0f1319;--card:#171c25;--text:#e8ecf2;--muted:#9aa4b2;--line:#2a3140;--accent:#7aa2ff;
+--multisig:#7aa2ff;--timelock:#f0b04a;--dao:#4fd1a0;--wallet:#ff8a7a;--immutable:#9aa4b2;--unresolved:#c9a0ff}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{background:var(--bg);color:var(--text);font:16px/1.5 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+main{max-width:980px;margin:0 auto;padding:28px 16px 40px}
+h1{font-size:clamp(1.5rem,4vw,2.1rem);line-height:1.2;margin:0 0 6px}
+.sub{color:var(--muted);margin:0 0 18px}
+.note{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--accent);border-radius:8px;padding:12px 14px;font-size:.92rem;color:var(--muted);margin-bottom:20px}
+.note b{color:var(--text)}
+.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px;margin-bottom:20px}
+h2{font-size:1rem;margin:0 0 4px}
+.hint{color:var(--muted);font-size:.85rem;margin:0 0 12px}
+.bars{display:grid;gap:8px}
+.bar{display:grid;grid-template-columns:120px 1fr 28px;gap:10px;align-items:center;width:100%;background:none;border:1px solid transparent;border-radius:8px;padding:4px 6px;color:inherit;font:inherit;cursor:pointer;text-align:left}
+.bar:hover,.bar[aria-pressed="true"]{border-color:var(--line);background:var(--bg)}
+.bar .track{height:14px;background:var(--bg);border-radius:7px;overflow:hidden}
+.bar .fill{height:100%;border-radius:7px}
+.bar .n{font-weight:700;text-align:right}
+.tools{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-bottom:12px}
+input[type=search]{flex:1;min-width:180px;padding:9px 12px;border:1px solid var(--line);border-radius:8px;background:var(--bg);color:var(--text);font:inherit}
+.clear{padding:9px 12px;border:1px solid var(--line);border-radius:8px;background:var(--card);color:var(--text);font:inherit;cursor:pointer}
+.wrap{overflow-x:auto;max-width:100%}
+table{border-collapse:collapse;width:100%;min-width:640px;font-size:.92rem}
+th,td{text-align:left;padding:10px 8px;border-bottom:1px solid var(--line);vertical-align:top}
+th button{all:unset;cursor:pointer;font-weight:700;color:var(--text)}
+th button:focus-visible,.bar:focus-visible,.clear:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+td a{color:var(--accent);text-decoration:none;font-weight:600}
+td a:hover{text-decoration:underline}
+.addr{display:block;font:.76rem ui-monospace,Menlo,Consolas,monospace;color:var(--muted)}
+.pill{display:inline-block;padding:2px 9px;border-radius:999px;font-size:.8rem;font-weight:700;border:1px solid currentColor;white-space:nowrap}
+.multisig{color:var(--multisig)}.timelock{color:var(--timelock)}.dao{color:var(--dao)}.wallet{color:var(--wallet)}.immutable{color:var(--immutable)}.unresolved{color:var(--unresolved)}
+.fill.multisig{background:var(--multisig)}.fill.timelock{background:var(--timelock)}.fill.dao{background:var(--dao)}.fill.wallet{background:var(--wallet)}.fill.immutable{background:var(--immutable)}.fill.unresolved{background:var(--unresolved)}
+.empty{padding:18px;color:var(--muted);text-align:center}
+footer{color:var(--muted);font-size:.85rem}
+footer a{color:var(--accent)}
+footer ul{padding-left:18px;margin:8px 0}
+@media (max-width:520px){.bar{grid-template-columns:96px 1fr 24px}}
+
+.top{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;flex-wrap:wrap}
+.gh{display:inline-block;padding:8px 12px;border:1px solid var(--line);border-radius:8px;background:var(--card);color:var(--text);text-decoration:none;font-weight:600;font-size:.9rem;white-space:nowrap}
+.gh:hover{border-color:var(--accent)}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:20px}
+.stat{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:12px 14px}
+.stat b{display:block;font-size:1.5rem;line-height:1.15}
+.stat span{color:var(--muted);font-size:.82rem}
+.sortsel{display:none;padding:9px 12px;border:1px solid var(--line);border-radius:8px;background:var(--bg);color:var(--text);font:inherit}
+@media (max-width:640px){
+.stats{grid-template-columns:repeat(2,1fr)}
+.sortsel{display:block}
+table,tbody,tr,td{display:block;width:100%}
+table{min-width:0}
+thead{display:none}
+tr{padding:12px 0;border-bottom:1px solid var(--line)}
+td{border:0;padding:3px 0}
+td[data-l]::before{content:attr(data-l) ": ";color:var(--muted);font-size:.8rem}
+}
+</style>
+</head>
+<body>
+<main>
+<div class="top"><div><h1>Who holds the admin keys?</h1>
+<p class="sub">20 major Ethereum DeFi protocols, snapshot on 10 Oct 2026 (block 26,164,177)</p></div><a class="gh" href="https://github.com/Muhammad-Abbas-Khalil/admin-key-snapshot" target="_blank" rel="noopener">View code on GitHub</a></div>
+<div class="note"><b>How to read this.</b> "Controller" is the <b>immediate</b> controller. A timelock means a delay exists, not who is behind it. For contracts that are not proxies, the owner controls settings such as fees or minting, and may not be able to replace the code. This is a point-in-time snapshot, not an audit or a risk rating.</div>
+
+<div class="stats" id="stats"></div>
+
+<section class="card">
+<h2>Immediate controller, by count</h2>
+<p class="hint">Select a bar to filter the table.</p>
+<div class="bars" id="bars"></div>
+</section>
+
+<section class="card">
+<h2>All 20 protocols</h2>
+<div class="tools">
+<input type="search" id="q" placeholder="Search protocols" aria-label="Search protocols">
+<select id="sortsel" class="sortsel" aria-label="Sort by"><option value="0">Sort: Protocol</option><option value="3">Sort: Controller</option><option value="2">Sort: Proxy?</option></select>
+<button class="clear" id="clear" type="button">Clear filters</button>
+</div>
+<div class="wrap"><table>
+<thead><tr id="head"></tr></thead>
+<tbody id="rows"></tbody>
+</table></div>
+<p class="hint" id="count" style="margin:10px 0 0"></p>
+<p class="hint">* Pendle's router is a diamond proxy, which the script does not detect, so the script reported "No".</p>
+</section>
+
+<footer>
+<p>Source code, method and notes: <a href="https://github.com/Muhammad-Abbas-Khalil/admin-key-snapshot" target="_blank" rel="noopener">github.com/Muhammad-Abbas-Khalil/admin-key-snapshot</a></p>
+<p>Open items: Balancer's authorizer was not traced to its final controller; Rocket Pool's current guardian powers were not verified; Compound and Uniswap timelock admins were not traced further. Governance details for Aave, Lido, Curve and EigenLayer come from project documentation. A small, hand-picked sample, not a statistical survey.</p>
+</footer>
+</main>
+<script>
+const CATS={multisig:"Multisig",timelock:"Timelock",dao:"DAO governance",wallet:"Single wallet",immutable:"Immutable",unresolved:"Not resolved"};
+const D=[
+["Aave","0x87870Bca3F3fD6335C3F4ce8392D69350B4fA4E2","Yes","dao","On-chain governance: PoolAddressesProvider, then Executor Lvl1, then PayloadsController"],
+["Lido stETH","0xae7ab96520DE3A18E5e111B5EaAb095312D7fE84","Yes","dao","Aragon Kernel; LDO token-holder votes"],
+["Morpho Blue","0xBBBBBbbBBb9cC5e90e3b3Af64bdAF62C37EEFFCb","No","multisig","6 of 10"],
+["Ethena USDe","0x4c9EDD5852cd905f086C759E8383e09bff1E68B3","No","timelock","24 h delay; who is behind it was not traced"],
+["Ether.fi eETH","0x35fA164735182de50811E8e2E824cFb9B6118ac2","Yes","timelock","240 h (10 days) delay; who is behind it was not traced"],
+["Compound III USDC","0xc3d688B66703497DAA19211EEdff47f25384cdc3","Yes","timelock","48 h delay"],
+["Uniswap V3 Factory","0x1F98431c8aD98523631AE4a59f267346ea31F984","No","timelock","48 h delay"],
+["Circle USDC","0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48","Yes","wallet","Admin is an externally owned address (0x807a...95d2)"],
+["Chainlink LINK","0x514910771AF9Ca656af840dff83E8264EcF986CA","No","immutable","No owner or admin function"],
+["Tether USDT","0xdAC17F958D2ee523a2206206994597C13D831ec7","No","multisig","3 of 6 (legacy multisig wallet)"],
+["EigenLayer StrategyManager","0x858646372CC42E1A627fcE94aa7A7033e7CF075A","Yes","multisig","1 of 2, whose owners are a 10-day timelock and a 9-of-13 multisig; either can act alone"],
+["Pendle Router","0x888888888889758F76e7103c6CbF23ABbF58F946","Yes*","multisig","3 of 5 (owner)"],
+["Rocket Pool Storage","0x1d8f8f00cfa6758d7bE78336684788Fb0ee0Fa46","No","wallet","Guardian address is a single wallet; its current powers were not verified"],
+["Balancer V2 Vault","0xBA12222222228d8Ba445958a75a0704d566BF2C8","No","unresolved","Authorizer contract 0x6048...91e7, not traced further"],
+["Maker Sky Vat","0x35D1b3F3D7966A1DFe207aa4514C12a259A0492B","No","timelock","48 h delay (pause proxy); controller candidate supplied manually"],
+["Curve CRV","0xD533a949740bb3306d119CC777fa900bA034cd52","No","dao","Aragon Ownership Agent (per Curve docs)"],
+["Synthetix SNX","0xC011a73ee8576Fb46F5E1c5751cA3B9Fe0af2a6F","Yes","multisig","4 of 7"],
+["Yearn YFI","0x0bc529c00C6401aEF6D220BE8C6Ea1667F6Ad93e","No","timelock","About 2.4 days (17,280 blocks), then a 6-of-9 multisig"],
+["Convex Booster","0xF403C135812408BFbE8713b5A23a04b3D48AAE31","No","multisig","3 of 5, behind two contracts"],
+["Optimism L1 Standard Bridge","0x99C9fc46f92E8a1c0deC1b1747d010903E884bE1","Yes","multisig","2 of 2: Optimism Foundation (5 of 7) and Security Council (10 of 13)"]
+];
+const COLS=[["Protocol",0],["Proxy?",2],["Immediate controller",3],["Details",4]];
+let sk=0,sd=1,cat="",q="";
+const $=id=>document.getElementById(id);
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+function keyOf(r,i){return i===3?CATS[r[3]]:r[i];}
+function drawBars(){
+  $("bars").innerHTML=Object.keys(CATS).map(k=>{
+    const n=D.filter(r=>r[3]===k).length;
+    return `<button type="button" class="bar" data-k="${k}" aria-pressed="${cat===k}" aria-label="${CATS[k]}: ${n} protocols"><span>${CATS[k]}</span><span class="track"><span class="fill ${k}" style="display:block;width:${n/D.length*100}%"></span></span><span class="n">${n}</span></button>`;
+  }).join("");
+  $("bars").querySelectorAll(".bar").forEach(b=>b.onclick=()=>{cat=cat===b.dataset.k?"":b.dataset.k;draw();});
+}
+function drawHead(){
+  $("head").innerHTML=COLS.map(([t,i])=>`<th scope="col" aria-sort="${sk===i?(sd>0?"ascending":"descending"):"none"}"><button type="button" data-i="${i}">${t}${sk===i?(sd>0?" ▲":" ▼"):""}</button></th>`).join("");
+  $("head").querySelectorAll("button").forEach(b=>b.onclick=()=>{const i=+b.dataset.i;sd=sk===i?-sd:1;sk=i;draw();});
+}
+function drawRows(){
+  const t=q.toLowerCase();
+  const rows=D.filter(r=>(!cat||r[3]===cat)&&(!t||(r[0]+" "+r[4]+" "+CATS[r[3]]).toLowerCase().includes(t)))
+    .sort((a,b)=>keyOf(a,sk).localeCompare(keyOf(b,sk))*sd);
+  $("rows").innerHTML=rows.length?rows.map(r=>`<tr><td><a href="https://etherscan.io/address/${r[1]}" target="_blank" rel="noopener">${esc(r[0])}</a><span class="addr">${r[1].slice(0,6)}...${r[1].slice(-4)}</span></td><td data-l="Proxy?">${esc(r[2])}</td><td data-l="Controller"><span class="pill ${r[3]}">${CATS[r[3]]}</span></td><td data-l="Details">${esc(r[4])}</td></tr>`).join(""):`<tr><td colspan="4" class="empty">No protocols match.</td></tr>`;
+  $("count").textContent=`Showing ${rows.length} of ${D.length}`+(cat?` (filtered by ${CATS[cat]})`:"");$("sortsel").value=String(sk);
+}
+function drawStats(){const c=k=>D.filter(r=>r[3]===k).length;
+  $("stats").innerHTML=[[c("immutable")+" of "+D.length,"has no admin at all"],[c("multisig"),"controlled by a multisig"],["24 h to 10 days","timelock delays in the sample"],[c("wallet"),"have a single-wallet controller"]].map(([a,b])=>`<div class="stat"><b>${a}</b><span>${b}</span></div>`).join("");}
+function draw(){drawBars();drawHead();drawRows();}
+$("q").oninput=e=>{q=e.target.value;drawRows();};
+$("clear").onclick=()=>{cat="";q="";$("q").value="";draw();};
+$("sortsel").onchange=e=>{sk=+e.target.value;sd=1;draw();};
+drawStats();draw();
+</script>
+</body>
+</html>

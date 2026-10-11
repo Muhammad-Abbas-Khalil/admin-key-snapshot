@@ -1,0 +1,370 @@
+{
+  "snapshot_utc": "2026-10-10T19:41:57.115058+00:00",
+  "block_number": 26164177,
+  "rpc": "https://ethereum-rpc.publicnode.com",
+  "results": [
+    {
+      "name": "Aave",
+      "contract": "0x87870Bca3F3fD6335C3F4ce8392D69350B4fA4E2",
+      "is_proxy": true,
+      "control_source": "ADDRESSES_PROVIDER() (Aave-style)",
+      "controller_chain": [
+        {
+          "type": "other_contract",
+          "address": "0x2f39d218133AFaB8F2B819B1066c7E434Ad94E9e"
+        },
+        {
+          "type": "other_contract",
+          "address": "0x5300A1a15135EA4dc7aD5a167152C01EFc9b192A"
+        },
+        {
+          "type": "other_contract",
+          "address": "0xdAbad81aF85554E9ae636395611C58F7eC1aAEc5"
+        }
+      ],
+      "final_type": "other_contract",
+      "notes": "",
+      "implementation": "0x728a138A4823392C2EFA55e028d434F526fE03CF"
+    },
+    {
+      "name": "Lido stETH",
+      "contract": "0xae7ab96520DE3A18E5e111B5EaAb095312D7fE84",
+      "is_proxy": true,
+      "control_source": "kernel() (Aragon-style DAO)",
+      "controller_chain": [
+        {
+          "type": "other_contract",
+          "address": "0xb8FFC3Cd6e7Cf5a098A1c92F48009765B24088Dc"
+        }
+      ],
+      "final_type": "other_contract",
+      "notes": "",
+      "implementation": "0x028271E30a695c0527A0C50cA30603feD004cDb0"
+    },
+    {
+      "name": "Morpho Blue",
+      "contract": "0xBBBBBbbBBb9cC5e90e3b3Af64bdAF62C37EEFFCb",
+      "is_proxy": false,
+      "control_source": "owner()",
+      "controller_chain": [
+        {
+          "type": "multisig",
+          "address": "0xcBa28b38103307Ec8dA98377ffF9816C164f9AFa",
+          "threshold": 6,
+          "signers": 10
+        }
+      ],
+      "final_type": "multisig",
+      "notes": "",
+      "implementation": null
+    },
+    {
+      "name": "Ethena USDe",
+      "contract": "0x4c9EDD5852cd905f086C759E8383e09bff1E68B3",
+      "is_proxy": false,
+      "control_source": "owner()",
+      "controller_chain": [
+        {
+          "type": "timelock",
+          "address": "0xE8Dc0Fab349EA169283C48Ccfd09d797E6DB7c94",
+          "delay_seconds": 86400
+        }
+      ],
+      "final_type": "timelock",
+      "notes": "",
+      "implementation": null
+    },
+    {
+      "name": "Ether.fi eETH",
+      "contract": "0x35fA164735182de50811E8e2E824cFb9B6118ac2",
+      "is_proxy": true,
+      "control_source": "roleRegistry() (role-registry pattern)",
+      "controller_chain": [
+        {
+          "type": "other_contract",
+          "address": "0x62247D29B4B9BECf4BB73E0c722cf6445cfC7cE9"
+        },
+        {
+          "type": "timelock",
+          "address": "0x9f26d4C958fD811A1F59B01B86Be7dFFc9d20761",
+          "delay_seconds": 864000
+        }
+      ],
+      "final_type": "timelock",
+      "notes": "",
+      "implementation": "0xd1901dD36CBf4a81386d0162DF2707f7dDb60527"
+    },
+    {
+      "name": "Compound III USDC",
+      "contract": "0xc3d688B66703497DAA19211EEdff47f25384cdc3",
+      "is_proxy": true,
+      "control_source": "EIP-1967 admin slot",
+      "controller_chain": [
+        {
+          "type": "other_contract",
+          "address": "0x1EC63B5883C3481134FD50D5DAebc83Ecd2E8779"
+        },
+        {
+          "type": "timelock",
+          "address": "0x6d903f6003cca6255D85CcA4D3B5E5146dC33925",
+          "delay_seconds": 172800,
+          "admin": "0x309a862bbC1A00e45506cB8A802D1ff10004c8C0",
+          "style": "Compound-style"
+        }
+      ],
+      "final_type": "timelock",
+      "notes": "",
+      "implementation": "0x63e749153BaF1838f63cA22c275370BD2B1cEB15"
+    },
+    {
+      "name": "Uniswap V3 Factory",
+      "contract": "0x1F98431c8aD98523631AE4a59f267346ea31F984",
+      "is_proxy": false,
+      "control_source": "owner()",
+      "controller_chain": [
+        {
+          "type": "other_contract",
+          "address": "0xf2371551Fe3937Db7c750f4DfABe5c2fFFdcBf5A"
+        },
+        {
+          "type": "timelock",
+          "address": "0x1a9C8182C09F50C8318d769245beA52c32BE35BC",
+          "delay_seconds": 172800,
+          "admin": "0x408ED6354d4973f66138C91495F2f2FCbd8724C3",
+          "style": "Compound-style"
+        }
+      ],
+      "final_type": "timelock",
+      "notes": "",
+      "implementation": null
+    },
+    {
+      "name": "Circle USDC",
+      "contract": "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
+      "is_proxy": true,
+      "control_source": "ZeppelinOS admin slot (legacy proxy)",
+      "controller_chain": [
+        {
+          "type": "single_wallet",
+          "address": "0x807a96288A1A408dBC13DE2b1d087d10356395d2"
+        }
+      ],
+      "final_type": "single_wallet",
+      "notes": "",
+      "implementation": "0x43506849D7C04F9138D1A2050bbF3A0c054402dd"
+    },
+    {
+      "name": "Chainlink LINK",
+      "contract": "0x514910771AF9Ca656af840dff83E8264EcF986CA",
+      "is_proxy": false,
+      "control_source": null,
+      "controller_chain": [],
+      "final_type": "none_found",
+      "notes": "No standard admin/owner found (may be immutable or use a custom pattern)",
+      "implementation": null,
+      "probe": {}
+    },
+    {
+      "name": "Tether USDT",
+      "contract": "0xdAC17F958D2ee523a2206206994597C13D831ec7",
+      "is_proxy": false,
+      "control_source": "owner()",
+      "controller_chain": [
+        {
+          "type": "multisig",
+          "address": "0xC6CDE7C39eB2f0F0095F41570af89eFC2C1Ea828",
+          "style": "legacy MultiSigWallet",
+          "threshold": 3,
+          "signers": 6
+        }
+      ],
+      "final_type": "multisig",
+      "notes": "",
+      "implementation": null
+    },
+    {
+      "name": "EigenLayer StrategyManager",
+      "contract": "0x858646372CC42E1A627fcE94aa7A7033e7CF075A",
+      "is_proxy": true,
+      "control_source": "EIP-1967 admin slot",
+      "controller_chain": [
+        {
+          "type": "other_contract",
+          "address": "0x8b9566AdA63B64d1E1dcF1418b43fd1433b72444"
+        },
+        {
+          "type": "multisig",
+          "address": "0x369e6F597e22EaB55fFb173C6d9cD234BD699111",
+          "threshold": 1,
+          "signers": 2
+        }
+      ],
+      "final_type": "multisig",
+      "notes": "",
+      "implementation": "0xa7536C85898dC424c6BFe8592F983661f830656A"
+    },
+    {
+      "name": "Pendle Router",
+      "contract": "0x888888888889758F76e7103c6CbF23ABbF58F946",
+      "is_proxy": false,
+      "control_source": "owner()",
+      "controller_chain": [
+        {
+          "type": "multisig",
+          "address": "0x8119EC16F0573B7dAc7C0CB94EB504FB32456ee1",
+          "threshold": 3,
+          "signers": 5
+        }
+      ],
+      "final_type": "multisig",
+      "notes": "",
+      "implementation": null
+    },
+    {
+      "name": "Rocket Pool Storage",
+      "contract": "0x1d8f8f00cfa6758d7bE78336684788Fb0ee0Fa46",
+      "is_proxy": false,
+      "control_source": "getGuardian() (Rocket Pool style)",
+      "controller_chain": [
+        {
+          "type": "single_wallet",
+          "address": "0x0cCF14983364A7735d369879603930Afe10df21e"
+        }
+      ],
+      "final_type": "single_wallet",
+      "notes": "",
+      "implementation": null
+    },
+    {
+      "name": "Balancer V2 Vault",
+      "contract": "0xBA12222222228d8Ba445958a75a0704d566BF2C8",
+      "is_proxy": false,
+      "control_source": "getAuthorizer() (Balancer style)",
+      "controller_chain": [
+        {
+          "type": "other_contract",
+          "address": "0x6048A8c631Fb7e77EcA533Cf9C29784e482391e7"
+        }
+      ],
+      "final_type": "other_contract",
+      "notes": "",
+      "implementation": null
+    },
+    {
+      "name": "Maker Sky Vat",
+      "contract": "0x35D1b3F3D7966A1DFe207aa4514C12a259A0492B",
+      "is_proxy": false,
+      "control_source": "wards(address) (Maker style)",
+      "controller_chain": [
+        {
+          "type": "other_contract",
+          "address": "0xBE8E3e3618f7474F8cB1d074A26afFef007E98FB"
+        },
+        {
+          "type": "timelock",
+          "address": "0xbE286431454714F511008713973d3B053A2d38f3",
+          "delay_seconds": 172800,
+          "style": "DSPause (Maker)",
+          "pause_proxy": "0xBE8E3e3618f7474F8cB1d074A26afFef007E98FB",
+          "authority": "0x929d9A1435662357F54AdcF64DcEE4d6b867a6f9"
+        }
+      ],
+      "final_type": "timelock",
+      "notes": "Confirmed the candidate is a ward. Other wards (e.g. protocol modules) may also exist; they cannot be listed with one call.",
+      "implementation": null
+    },
+    {
+      "name": "Curve CRV",
+      "contract": "0xD533a949740bb3306d119CC777fa900bA034cd52",
+      "is_proxy": false,
+      "control_source": "admin() (Curve style)",
+      "controller_chain": [
+        {
+          "type": "other_contract",
+          "address": "0x40907540d8a6C65c637785e8f8B742ae6b0b9968"
+        }
+      ],
+      "final_type": "other_contract",
+      "notes": "",
+      "implementation": null
+    },
+    {
+      "name": "Synthetix SNX",
+      "contract": "0xC011a73ee8576Fb46F5E1c5751cA3B9Fe0af2a6F",
+      "is_proxy": true,
+      "control_source": "owner()",
+      "controller_chain": [
+        {
+          "type": "multisig",
+          "address": "0xEb3107117FEAd7de89Cd14D463D340A2E6917769",
+          "threshold": 4,
+          "signers": 7
+        }
+      ],
+      "final_type": "multisig",
+      "notes": "",
+      "implementation": "0xc5f0b4194455e0C175ab68C501400e46C7203504"
+    },
+    {
+      "name": "Yearn YFI",
+      "contract": "0x0bc529c00C6401aEF6D220BE8C6Ea1667F6Ad93e",
+      "is_proxy": false,
+      "control_source": "governance() (Yearn style)",
+      "controller_chain": [
+        {
+          "type": "other_contract",
+          "address": "0x026D4b8d693f6C446782c2C61ee357Ec561DFB61"
+        }
+      ],
+      "final_type": "other_contract",
+      "notes": "",
+      "implementation": null
+    },
+    {
+      "name": "Convex Booster",
+      "contract": "0xF403C135812408BFbE8713b5A23a04b3D48AAE31",
+      "is_proxy": false,
+      "control_source": "owner()",
+      "controller_chain": [
+        {
+          "type": "other_contract",
+          "address": "0x3cE6408F923326f81A7D7929952947748180f1E6"
+        },
+        {
+          "type": "other_contract",
+          "address": "0x256e1bbA846611C37CF89844a02435E6C098b86D"
+        },
+        {
+          "type": "multisig",
+          "address": "0xa3C5A1e09150B75ff251c1a7815A07182c3de2FB",
+          "threshold": 3,
+          "signers": 5
+        }
+      ],
+      "final_type": "multisig",
+      "notes": "",
+      "implementation": null
+    },
+    {
+      "name": "Optimism L1 Standard Bridge",
+      "contract": "0x99C9fc46f92E8a1c0deC1b1747d010903E884bE1",
+      "is_proxy": true,
+      "control_source": "EIP-1967 admin slot",
+      "controller_chain": [
+        {
+          "type": "other_contract",
+          "address": "0x543bA4AADBAb8f9025686Bd03993043599c6fB04"
+        },
+        {
+          "type": "multisig",
+          "address": "0x5a0Aae59D09fccBdDb6C6CcEB07B7279367C3d2A",
+          "threshold": 2,
+          "signers": 2
+        }
+      ],
+      "final_type": "multisig",
+      "notes": "",
+      "implementation": "0xB37a11AadF167B2F0b8dD85372De4bC66CD4A891"
+    }
+  ]
+}
