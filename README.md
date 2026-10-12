@@ -1,5 +1,7 @@
 # Admin Key Snapshot
 
+![Who holds the admin keys? 20 Ethereum DeFi protocols](og.png)
+
 A small Python tool that answers one question for each DeFi contract on Ethereum mainnet: **who holds its admin power?**
 
 For every contract listed in `protocols.csv`, the script finds the immediate controller and classifies it as a **single wallet**, a **multisig**, or a **timelock**. Results are saved to `results.json` and printed as a table in the terminal.
