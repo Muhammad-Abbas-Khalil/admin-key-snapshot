@@ -112,7 +112,7 @@ This is a small, hand-picked sample of well-known protocols, not a statistical s
 ## Key findings
 
 - Only **1 of 20** (Chainlink LINK) has no admin at all.
-- **2 of 20** have a single externally owned address in the controller role: the Circle USDC proxy admin and the Rocket Pool guardian. The README's reading notes apply: an address is not necessarily one person, and the guardian's current powers were not verified.
+- **2 of 20** have a single externally owned address in the controller role: the Circle USDC proxy admin and the Rocket Pool guardian. The reading notes above apply: an address is not necessarily one person, and the guardian's current powers were not verified.
 - Timelock delays in the sample range from **24 hours** (Ethena) to **10 days** (Ether.fi).
 - **7 of 20** are controlled by a multisig, from 1 of 2 up to 6 of 10. Two of them (EigenLayer, Optimism) have contracts as signers, not individuals.
 - **3 of 20** are controlled through on-chain DAO governance (Aave, Lido, Curve), based on each project's documentation.
